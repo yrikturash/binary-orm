@@ -79,12 +79,29 @@ namespace binaryorm.Models
 
 
 
-            var questions = new List<Question>();
-            questions.Add(new Question()
+            var questions = new List<Question>()
             {
-                Category = categories[0],
-                Text = "Question1 text"
-            });
+                new Question()
+                {
+                    Category = categories[0],
+                    Text = "Question1 text"
+                },
+                new Question()
+                {
+                    Category = categories[0],
+                    Text = "Question2 text"
+                },
+                new Question()
+                {
+                    Category = categories[0],
+                    Text = "Question3 text"
+                },
+                new Question()
+                {
+                    Category = categories[0],
+                    Text = "Question4 text"
+                },
+            };
 
             context.Questions.AddRange(questions);
 
@@ -97,7 +114,7 @@ namespace binaryorm.Models
                     MaxPassTime = 48,
                     Name = ".Net Basic Test",
                     PassMark = 50,
-                    Questions = questions
+                    Questions = new List<Question>() {questions[0], questions[1]}
                 },
                 new Test()
                 {
@@ -105,7 +122,7 @@ namespace binaryorm.Models
                     MaxPassTime = 48,
                     Name = ".Net Advanced Test",
                     PassMark = 50,
-                    Questions = questions
+                    Questions = new List<Question>() {questions[1], questions[2]}
                 }
             };
             context.Tests.AddRange(testsCategory0);
@@ -221,7 +238,7 @@ namespace binaryorm.Models
                     PassTime = 34,
                     Result = 66,
                     Test = testsCategory0[0],
-                    User = users[3]
+                    User = users[4]
                 },
                 new TestWork()
                 {
@@ -282,24 +299,31 @@ namespace binaryorm.Models
                 }
             };
 
+            context.Lectures.AddRange(lectures);
+
             var teachers = new List<Teacher>()
             {
                 new Teacher()
                 {
                     Name = "Troy J. Jones",
-
+                    Lectures = new List<Lecture>(){lectures[0], lectures[1],lectures[2]}
                 },
                 new Teacher()
                 {
                     Name = "Gail D. Kirk",
+                    Lectures = new List<Lecture>(){lectures[3], lectures[4]}
 
                 },
                 new Teacher()
                 {
                     Name = "John T. Velez",
+                    Lectures = new List<Lecture>(){lectures[5]}
 
                 }
             };
+
+            context.Teachers.AddRange(teachers);
+
 
             teachers.AddRange(teachers);
 
