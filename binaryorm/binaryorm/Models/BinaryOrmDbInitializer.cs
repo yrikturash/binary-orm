@@ -134,7 +134,8 @@ namespace binaryorm.Models
                     MaxPassTime = 48,
                     Name = "JS Basic Test",
                     PassMark = 50,
-                    Questions = questions
+                    Questions = new List<Question>() {questions[2], questions[3]}
+
                 },
                 new Test()
                 {
@@ -142,7 +143,7 @@ namespace binaryorm.Models
                     MaxPassTime = 48,
                     Name = "JS Advanced Test",
                     PassMark = 50,
-                    Questions = questions
+                    Questions = new List<Question>() {questions[3], questions[1]}
                 }
             };
             context.Tests.AddRange(testsCategory1);
@@ -155,7 +156,7 @@ namespace binaryorm.Models
                     MaxPassTime = 48,
                     Name = "PHP Basic Test",
                     PassMark = 50,
-                    Questions = questions
+                    Questions = new List<Question>() {questions[1], questions[2]}
                 },
                 new Test()
                 {
@@ -163,7 +164,8 @@ namespace binaryorm.Models
                     MaxPassTime = 48,
                     Name = "PHP Advanced Test",
                     PassMark = 50,
-                    Questions = questions
+                    Questions = new List<Question>() {questions[3], questions[1]}
+
                 }
             };
             context.Tests.AddRange(testsCategory2);
@@ -176,7 +178,7 @@ namespace binaryorm.Models
                     MaxPassTime = 48,
                     Name = "DB Basic Test",
                     PassMark = 50,
-                    Questions = questions
+                    Questions = new List<Question>() {questions[3], questions[1]}
                 },
                 new Test()
                 {
@@ -184,7 +186,7 @@ namespace binaryorm.Models
                     MaxPassTime = 48,
                     Name = "DB Advanced Test",
                     PassMark = 50,
-                    Questions = questions
+                    Questions = new List<Question>() {questions[3], questions[1]}
                 }
             };
             context.Tests.AddRange(testsCategory3);
@@ -205,7 +207,7 @@ namespace binaryorm.Models
                     MaxPassTime = 48,
                     Name = "English Speaking",
                     PassMark = 50,
-                    Questions = questions
+                    Questions = new List<Question>() {questions[3], questions[1]}
                 }
             };
             context.Tests.AddRange(testsCategory5);
@@ -215,28 +217,28 @@ namespace binaryorm.Models
                 new TestWork()
                 {
                     PassTime = 34,
-                    Result = 66,
+                    Result = 20,
                     Test = testsCategory0[0],
                     User = users[0]
                 },
                 new TestWork()
                 {
                     PassTime = 34,
-                    Result = 66,
+                    Result = 58,
                     Test = testsCategory1[1],
                     User = users[1]
                 },
                 new TestWork()
                 {
                     PassTime = 34,
-                    Result = 66,
+                    Result = 35,
                     Test = testsCategory5[0],
                     User = users[2]
                 },
                 new TestWork()
                 {
-                    PassTime = 34,
-                    Result = 66,
+                    PassTime = 66,
+                    Result = 24,
                     Test = testsCategory0[0],
                     User = users[4]
                 },
@@ -250,7 +252,7 @@ namespace binaryorm.Models
                 new TestWork()
                 {
                     PassTime = 34,
-                    Result = 66,
+                    Result = 54,
                     Test = testsCategory5[0],
                     User = users[5]
                 },

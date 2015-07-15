@@ -94,7 +94,10 @@ namespace binaryorm
                                 Result = n.Result,
                                 Time = n.PassTime,
                                 Category = n.Test.Category.Name,
-                                PassPercent = (float)(n.Result) / n.Test.PassMark * 100
+                                PassPercent =
+                                    (float) (n.Result)/
+                                    db.TestWorks.Where(k => k.Test.Category.CategoryId == n.Test.Category.CategoryId)
+                                        .Max(m => m.Result)*100
                             })
                         .GroupBy(n => n.User,
                             (m, k) =>
